@@ -1,29 +1,19 @@
-# MiluVCore
+## MiluVCore
 
-Lightweight Paper plugin core — staff mode, vanish, and an extension system for modular addons.
+Staff tools for Paper servers.
 
-## Features
+- Staff mode with hotbar tools (teleport, freeze, vanish, gamemode toggle, block teleport, exit)
+- Vanish with fake join/leave broadcasts and message blocking
+- Staff chat (/sc or @ prefix)
+- Freeze with Resistance 10 and auto-ban on disconnect
+- Auto-updater with GitHub releases
+- Config auto-merge on startup
 
-- **Staff Mode** — Hotbar tools: player teleport (compass + GUI), block teleport, freeze (with Resistance 10 + auto-ban on quit), gamemode toggle, vanish toggle, exit
-- **Vanish** — Full vanish with tab completion filtering, join/quit message suppression, fake leave/join broadcasts on toggle, message blocking
-- **Extension API** — Drop-in JAR extensions that hook into `/vcore` commands and events
-- **Auto-Updater** — Checks GitHub releases on startup, downloads updates, applies on next restart
+### Commands
 
-## Commands
-
-| Command | Aliases | Permission | Description |
-|---------|---------|------------|-------------|
-| `/vcore` | | `miluvcore.staff` | Main command (help, version, reload) |
-| `/vanish` | `/v` | `miluvcore.vanish` | Toggle vanish |
-| `/staffmode` | `/staff`, `/sm` | `miluvcore.staffmode` | Toggle staff mode |
-
-## Installation
-
-1. Drop `MiluVCore-1.0.0.jar` into `plugins/`
-2. Restart the server
-3. Configure `plugins/MiluVCore/config.yml` to taste
-
-## Extensions
-
-Place additional JARs (e.g. `MiluVCore-Moderation.jar`) in `plugins/` — they auto-register with the core on startup.
-
+| Command | Aliases |
+|---------|---------|
+| /vcore | Main command |
+| /vanish | /v |
+| /staffmode | /staff, /sm |
+| /staffchat | /sc |
