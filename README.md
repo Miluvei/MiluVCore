@@ -27,19 +27,3 @@ Lightweight Paper plugin core — staff mode, vanish, and an extension system fo
 
 Place additional JARs (e.g. `MiluVCore-Moderation.jar`) in `plugins/` — they auto-register with the core on startup.
 
-## Building
-
-```bash
-cd MiluVCore
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew :jar
-Output: build/libs/MiluVCore-1.0.0.jar
-Permissions
-Permission
-miluvcore.*
-miluvcore.staff
-miluvcore.vanish
-miluvcore.vanish.see
-miluvcore.staffmode
-miluvcore.reload
-Configuration
-See config.yml and messages.yml in plugins/MiluVCore/ after first run.
