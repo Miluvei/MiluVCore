@@ -1,19 +1,22 @@
-## MiluVCore
+# MiluVCore
 
 Staff tools for Paper servers.
 
-- Staff mode with hotbar tools (teleport, freeze, vanish, gamemode toggle, block teleport, exit)
-- Vanish with fake join/leave broadcasts and message blocking
-- Staff chat (/sc or @ prefix)
-- Freeze with Resistance 10 and auto-ban on disconnect
+## Features
+- Staff mode with hotbar tools (teleport compass with player list GUI, block teleport, freeze, gamemode toggle, vanish toggle, exit)
+- Vanish with fake join/leave broadcasts, message blocking, tab completion filtering
+- Staff chat (/sc or @ prefix in chat)
+- Freeze with Resistance 10 effect and auto-ban on disconnect
 - Auto-updater with GitHub releases
 - Config auto-merge on startup
 
-### Commands
+## Commands
+| Command | Aliases | Permission |
+|---------|--------|------------|
+| /vcore |  | miluvcore.staff |
+| /vanish | /v | miluvcore.vanish |
+| /staffmode | /staff, /sm | miluvcore.staffmode |
+| /staffchat | /sc | miluvcore.staffchat |
 
-| Command | Aliases |
-|---------|---------|
-| /vcore | Main command |
-| /vanish | /v |
-| /staffmode | /staff, /sm |
-| /staffchat | /sc |
+## Installation
+Drop the JAR into plugins/ and restart.
