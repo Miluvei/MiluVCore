@@ -69,7 +69,7 @@ Drop into plugins/ alongside the core. Enables cheat investigation, alerts, repo
 
 ### SUS Investigation System
 
-//sus opens a paginated dashboard showing flagged players with:
+/sus opens a paginated dashboard showing flagged players with:
 - Cheat confidence scoring (0-100%)
 - Flag history with severity colors (NED SUPPORT)
 - Filtering by source GrimAC/manual/all) and time range (1h/6h/24h/all)
