@@ -104,8 +104,8 @@ Drop into plugins/ alongside the core. Enables cheat investigation, alerts, repo
 
 ### PlaceholderAPI
 
-- %sus_flags_player_name%
-- %sus_lastflag_player_name%
+- %sus_flags_playername%
+- %sus_lastflag_playername%
 
 ### Commands
 
