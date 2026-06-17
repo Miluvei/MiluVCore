@@ -125,14 +125,4 @@ Drop into plugins/ alongside the core. Enables cheat investigation, alerts, repo
 2. Optional: add MiluVCore-Sentry-1.0.0.jar for SUS + reports
 3. Restart server
 4. Edit plugins/MiluVCore/config.yml to taste
-
-```
-
-## Building from Source
-
-```bash
-JAVA_HOME=/usr/lib/jmv/java-21-openjdk ./gradlew :jar
-cat output: build/libs/MiluVCore-1.5.0.jar
-```
-
-To build Sentry: git clone and run `Java_HOME=../../gradlew :extension-sentry:jar`. The Sentry JAR will be in `extension-sentry/build/libs/`.
+y: git clone and run `Java_HOME=../../gradlew :extension-sentry:jar`. The Sentry JAR will be in `extension-sentry/build/libs/`.
