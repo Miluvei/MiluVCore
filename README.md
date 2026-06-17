@@ -4,7 +4,7 @@ A lightweight, modular staff core for Paper servers with optional advanced moder
 
 ---
 
-## Core Module — `MiluVCore.jar`
+## Core Module - `MiluVCore.jar`
 
 ### Staff Mode
 Powerful staff hotbar toolkit designed for fast moderation:
@@ -19,7 +19,7 @@ Powerful staff hotbar toolkit designed for fast moderation:
 
 ### Vanish System
 Fully configurable stealth mode for staff:
-- Fake join/leave messages
+- Fake join and leave messages
 - Tab list hiding
 - Message blocking (`/msg`, `/tell`, `/w`)
 - Configurable broadcast formats
@@ -38,7 +38,7 @@ Private moderation channel:
 Player restriction utility for moderation:
 - Movement lock
 - Resistance X effect while frozen
-- Auto-punish on disconnect (configurable action/duration)
+- Auto-punish on disconnect (configurable action or duration)
 
 ---
 
@@ -62,15 +62,15 @@ Smart versioned config management:
 ### Commands
 
 | Command | Aliases | Permission |
-|--------|--------|------------|
-| `/vcore` | — | `miluvcore.staff` |
+|--------|---------|------------|
+| `/vcore` | - | `miluvcore.staff` |
 | `/vanish` | `/v` | `miluvcore.vanish` |
 | `/staffmode` | `/staff`, `/sm` | `miluvcore.staffmode` |
 | `/staffchat` | `/sc` | `miluvcore.staffchat` |
 
 ---
 
-## Extension — `MiluVCore-Sentry.jar`
+## Extension - `MiluVCore-Sentry.jar`
 
 Advanced moderation analytics and cheat investigation toolkit.
 
@@ -78,16 +78,16 @@ Advanced moderation analytics and cheat investigation toolkit.
 
 ### SUS Investigation System
 - `/sus` dashboard GUI
-- Cheat confidence scoring (0–100%)
+- Cheat confidence scoring (0-100%)
 - Flag history tracking
-- Severity-based indicators
-- Filtering by time/source
+- Severity indicators
+- Filtering by time and source
 
 ---
 
 ### GrimAC Integration
 - Real-time `FlagEvent` capture
-- Configurable VL threshold (default: 5)
+- Configurable VL threshold (default 5)
 - Thread-safe event handling
 
 ---
@@ -100,12 +100,12 @@ Advanced moderation analytics and cheat investigation toolkit.
 
 ---
 
-### Alerts & Automation
+### Alerts and Automation
 - Configurable alert thresholds
 - Per-player cooldown system
 - Discord webhook embeds
 - Auto-punish commands with `{player}` placeholder
-- Sound + chat notifications
+- Sound and chat notifications
 
 ---
 
@@ -113,7 +113,7 @@ Advanced moderation analytics and cheat investigation toolkit.
 - `/vcore logs` (staff activity logs)
 - `/vcore info <player>`
   - Online status
-  - World & gamemode
+  - World and gamemode
   - Flag history
   - Confidence score
 
@@ -140,7 +140,7 @@ Advanced moderation analytics and cheat investigation toolkit.
 ## Installation
 
 1. Put `MiluVCore-1.5.0.jar` into `plugins/`
-2. (Optional) Add `MiluVCore-Sentry-1.0.0.jar`
+2. Optional: add `MiluVCore-Sentry-1.0.0.jar`
 3. Restart server
 4. Edit `plugins/MiluVCore/config.yml`
 
