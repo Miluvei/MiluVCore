@@ -1,75 +1,152 @@
 # MiluVCore
 
-Staff tools for Paper servers. Lightweight core + optional Sentry extension.
+A lightweight, modular staff core for Paper servers with optional advanced moderation analytics via the **Sentry extension**.
 
-- ---
+---
 
-## Core (MiluVCore.jar)
+## Core Module — `MiluVCore.jar`
 
 ### Staff Mode
-Hotbar with teleport (diamond), block teleport (nether star), freeze (breeze rod), gamemode toggle (clock), vanish toggle (potion), exit (red dye).
+Powerful staff hotbar toolkit designed for fast moderation:
+- Teleport wand (Diamond)
+- Random teleport (Nether Star)
+- Freeze tool (Breeze Rod)
+- Gamemode toggle (Clock)
+- Vanish toggle (Potion)
+- Exit staff mode (Red Dye)
 
-### Vanish
-Fake join/leave broadcasts (configurable format). Tab completion hiding. Message blocking (/msg, /tell, /w).
+---
+
+### Vanish System
+Fully configurable stealth mode for staff:
+- Fake join/leave messages
+- Tab list hiding
+- Message blocking (`/msg`, `/tell`, `/w`)
+- Configurable broadcast formats
+
+---
 
 ### Staff Chat
-/sc toggle, @ prefix in chat. PlaceholderAPI support (%luckperms_prefix%).
+Private moderation channel:
+- `/sc` toggle
+- `@` chat prefix support
+- PlaceholderAPI support (e.g. `%luckperms_prefix%`)
 
-### Freeze
-Resistance 10 effect. Movement lock. Auto-ban on disconnect (configurable duration).
+---
+
+### Freeze System
+Player restriction utility for moderation:
+- Movement lock
+- Resistance X effect while frozen
+- Auto-punish on disconnect (configurable action/duration)
+
+---
 
 ### Auto-Updater
-Checks GitHub releases on startup. Downloads new JAR, deletes old ones, saves to plugins/. Waits for pending downloads on shutdown.
+Built-in GitHub release updater:
+- Checks for new versions on startup
+- Automatically downloads and replaces JAR files
+- Safe shutdown sync for pending updates
+- Keeps `/plugins` up to date
 
-### Config Auto-Merge
-Version-based config updater. New keys added automatically without overwriting existing settings.
+---
+
+### Configuration System
+Smart versioned config management:
+- Auto-merges new config keys on updates
+- Preserves existing user settings
+- Prevents config resets on upgrades
+
+---
+
+### Commands
 
 | Command | Aliases | Permission |
-|---------|--------|------------|
-| /vcore |  | miluvcore.staff |
-| /vanish | /v | miluvcore.vanish |
-| /staffmode | /staff, /sm | miluvcore.staffmode |
-| /staffchat | /sc | miluvcore.staffchat |
+|--------|--------|------------|
+| `/vcore` | — | `miluvcore.staff` |
+| `/vanish` | `/v` | `miluvcore.vanish` |
+| `/staffmode` | `/staff`, `/sm` | `miluvcore.staffmode` |
+| `/staffchat` | `/sc` | `miluvcore.staffchat` |
 
-- ---
+---
 
-## Extension: Sentry (MiluVCore-Sentry.jar)
-Drop into plugins/ alongside the core to enable:
+## Extension — `MiluVCore-Sentry.jar`
 
---- SUS Investigation - /sus dashboard with cheat confidence (0-100%), flag history, severity colors, source/time filters
---- GrimAC Integration - Auto-captures flags via FlagEvent. Configurable min-VL filter (default 5). Thread-safe Netty handler.
---- Staff Notes - /sus note <player> <text>, viewable in player GUI
---- Manual Flags - /sus flag <player> <source> <check> [vl]
---- Staff Alerts - Configurable flag thresholds, per-player cooldown, alert toggle (/sus toggle), sound notifications
---- Discord Webhooks - Embedded flag alerts with severity-colored embeds
---- Auto-Punish - Console command on threshold breach with {player} placeholder
---- Staff Reports - /report <player> <reason>, review via /vcore reports GUI
---- Staff Logs - /vcore logs GUI showing recent staff activity
---- Player Info - /vcore info <player> shows confidence, flags, online status, world, gamemode
---- PlaceholderAPI - %sus_flags_<player>%, %sus_lastflag_<player>%
+Advanced moderation analytics and cheat investigation toolkit.
+
+---
+
+### SUS Investigation System
+- `/sus` dashboard GUI
+- Cheat confidence scoring (0–100%)
+- Flag history tracking
+- Severity-based indicators
+- Filtering by time/source
+
+---
+
+### GrimAC Integration
+- Real-time `FlagEvent` capture
+- Configurable VL threshold (default: 5)
+- Thread-safe event handling
+
+---
+
+### Staff Tools
+- `/sus note <player> <text>`
+- `/sus flag <player> <source> <check> [vl]`
+- `/report <player> <reason>`
+- Reports GUI: `/vcore reports`
+
+---
+
+### Alerts & Automation
+- Configurable alert thresholds
+- Per-player cooldown system
+- Discord webhook embeds
+- Auto-punish commands with `{player}` placeholder
+- Sound + chat notifications
+
+---
+
+### Staff Monitoring
+- `/vcore logs` (staff activity logs)
+- `/vcore info <player>`
+  - Online status
+  - World & gamemode
+  - Flag history
+  - Confidence score
+
+---
+
+### PlaceholderAPI
+- `%sus_flags_<player>%`
+- `%sus_lastflag_<player>%`
+
+---
+
+### Commands
 
 | Command | Permission |
-|---------|-------------|
-| /sus | miluvcore.inspect |
-| /report | (default: true) |
-| /vcore info | miluvcore.staff |
-| /vcore logs | miluvcore.staff |
-| /vcore reports | miluvcore.staff |
+|--------|------------|
+| `/sus` | `miluvcore.inspect` |
+| `/report` | default |
+| `/vcore info` | `miluvcore.staff` |
+| `/vcore logs` | `miluvcore.staff` |
+| `/vcore reports` | `miluvcore.staff` |
 
-- ---
+---
 
 ## Installation
 
-1. Drop MiluVCore-1.5.0.jar into plugins/
-2. (Optional) Drop MiluVCore-Sentry-1.0.0.jar for SUS + reports
-#. Restart server
-4. Configure plugins/MiluVCore/config.yml to taste
+1. Put `MiluVCore-1.5.0.jar` into `plugins/`
+2. (Optional) Add `MiluVCore-Sentry-1.0.0.jar`
+3. Restart server
+4. Edit `plugins/MiluVCore/config.yml`
 
-## Building from source
+---
+
+## Building from Source
 
 ```bash
-JAVA_HOME=/usr/lib/jmv/java-21-openjdk ./gradlew :core:jar
-CAtput: build/libs/MiluVCore-1.5.0.jar
-```
-
-To build Sentry: pyloned on the core, build separately and drop into plugins/.
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew :core:jar
