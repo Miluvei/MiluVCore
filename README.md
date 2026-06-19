@@ -166,18 +166,6 @@ Client spoof detection via brand analysis and channel monitoring.
 - `%antispoof_brand%`, `%antispoof_channels%`, `%antispoof_channels_count%`
 - `%antispoof_is_spoofing%`, `%antispoof_is_bedrock%`
 
----
-
-## Build
-
-```bash
-cd MiluVCore
-JAVA_HOME=/path/to/jdk21 ./gradlew build
-```
-
-Jars are in the `build/libs/` directory of each subproject.
-
----
 
 ## Install
 
