@@ -1,128 +1,187 @@
-# MiluVCore
+# MiluVCore v1.6.0
 
-Staff tools for Paper servers. Modular core with optional Sentry extension for advanced moderation analytics.
-
-----
+Staff tools for Paper 1.21+ servers. Modular core with four extensions for moderation, anti-cheat, client analysis, and connection limiting.
 
 ## Core (MiluVCore.jar)
 
 ### Staff Mode
-Powerful staff hotbar toolkit:
+- Hotbar toolkit: teleport tool, freeze tool, vanish toggle, gamemode switch
+- Stealth mode: join/quit message blocking, pickup prevention, XP/armor drop blocking
+- `/staffmode` (aliases: `/staff`, `/sm`)
 
-- Teleport tool (Diamond)
-- Block teleport (Nether Star)
-- Freeze tool (Breeze Rod)
-- Gamemode toggle (Clock)
-- Vanish toggle (Potion)
-- Exit staff mode (Red Dye)
-
-### Vanish System
-Fully configurable stealth mode:
-
-- Fake join and leave broadcasts
-- Tab list hiding
-- Message blocking (/msg, /tell, /w)
-- Configurable broadcast formats
+### Vanish
+- Full invisibility with fake join/leave broadcasts
+- Tab list and message blocking (`/msg`, `/tell`, `/w`)
+- `/vanish` (`/v`)
 
 ### Staff Chat
-Private moderation channel:
+- Private staff-only chat channel
+- `/staffchat` (`/sc`)
 
-- /sc toggle
-- @ chat prefix support
-- PlaceholderAPI support (e.g. %luckperms_prefix%)
-
-### Freeze System
-Player restriction utility:
-
-- Movement lock
-- Resistance 10 effect while frozen
+### Freeze
+- Movement lock with Resistance 10 effect
 - Auto-ban on disconnect (configurable duration)
+- `/freeze <player>`
 
 ### Auto-Updater
-Built-in GitHub release updater:
+- Checks GitHub releases on startup
+- Downloads and swaps updated JARs automatically
 
-- Checks for new versions on startup
-- Automatically downloads and replaces JAR files
-- Safe shutdown sync for pending updates
-- Keeps /plugins up to date
-
-### Configuration System
-Versioned config management:
-
-- Auto-merges new config keys on updates
-- Preserves existing user settings
-- Prevents config resets on upgrades
+### Configuration
+- Versioned config system with auto-merge on updates
+- Preserves user settings across upgrades
 
 ### Commands
+| Command | Permission |
+|---------|-----------|
+| `/vcore` | `miluvcore.staff` |
+| `/vanish` | `miluvcore.vanish` |
+| `/staffmode` | `miluvcore.staffmode` |
+| `/staffchat` | `miluvcore.staffchat` |
 
-| Command | Aliases | Permission |
-|---------|--------|------------|
-| /vcore | - | miluvcore.staff |
-| /vanish | /v | miluvcore.vanish |
-| /staffmode | /staff, /sm | miluvcore.staffmode |
-| /staffchat | /sc | miluvcore.staffchat |
-
-----
+---
 
 ## Extension: Sentry (MiluVCore-Sentry.jar)
-Drop into plugins/ alongside the core. Enables cheat investigation, alerts, reports, and staff analytics.
 
-### SUS Investigation System
+Anti-cheat investigation and alerting system.
 
-/sus opens a paginated dashboard showing flagged players with:
-- Cheat confidence scoring (0-100%)
-- Flag history with severity colors (NED SUPPORT)
-- Filtering by source GrimAC/manual/all) and time range (1h/6h/24h/all)
-- Anvil-based search for player names
+### SUS Dashboard
+- `/sus` opens a paginated GUI of flagged players
+- Confidence scores (0-100%) with severity coloring
+- Source filters (Vulcan / manual) and time range (1h/6h/24h/all)
+- Anvil search for player names
 
-### GrimAC Integration
-
-- Real-time flag capture via GrimAC FlagEvent
-- Configurable MIN-VL threshold (default 5) to reduce false positives
-- Thread-safe Netty handling
+### Anticheat Bridges
+- Vulcan `VulcanFlagEvent` integration -- real-time flag capture
+- GrimAC support via reflection
 
 ### Staff Tools
+- `/sus note <player> <text>` -- add investigation notes
+- `/sus flag <player> <source> <check> [vl]` -- manual flag logging
+- `/report <player> <reason>` -- player reports
+- `/vcore reports` -- pending reports GUI
+- `/vcore logs` -- staff activity audit
+- `/vcore info <player>` -- detailed player overview
 
-- /sus note <player> <text> - Add staff notes
-- /sus flag <player> <source> <check> [vl] - Manual flag logging
-- /report <player> <reason> - Player reports
-- Reports GUI: /vcore reports
-
-### Alerts and Automation
-
-- Configurable flag thresholds
-- Per-player alert cooldown
+### Alerts
 - Discord webhook embeds with severity colors
-- Auto-punish command with {player}, {check}, {vl} placeholders
-- Sound and chat notifications
-- Alert toggle per staff member (/sus toggle)
-
-### Staff Monitoring
-
-- /vcore logs - Staff activity logs GUI
-- /vcore info <player> - Online status, world, gamemode, flags, confidence score
+- Auto-punish with `{player}`, `{check}`, `{vl}` placeholders
+- Per-player alert cooldown
+- Sound + chat notifications
+- `/sus toggle` -- three-mode alert toggle per staff member
 
 ### PlaceholderAPI
-
-- %sus_flags_playername%
-- %sus_lastflag_playername%
+- `%sus_flags_<player>%`, `%sus_lastflag_<player>%`
 
 ### Commands
-
 | Command | Permission |
-|---------|-------------|
-| /sus | miluvcore.inspect |
-| /report | default |
-| /vcore info | miluvcore.staff |
-| /vcore logs | miluvcore.staff |
-| /vcore reports | miluvcore.staff |
+|---------|-----------|
+| `/sus` | `miluvcore.inspect` |
+| `/report` | `default` |
+| `/vcore info` | `miluvcore.staff` |
+| `/vcore logs` | `miluvcore.staff` |
+| `/vcore reports` | `miluvcore.staff` |
 
-----
+---
 
-## Installation
+## Extension: Moderation (MiluVCore-Moderation.jar)
 
-1. Put MiluVCore-1.5.0.jar into plugins/
-2. Optional: add MiluVCore-Sentry-1.0.0.jar for SUS + reports
+Full moderation toolkit with punishment tracking.
+
+### Commands
+| Command | Permission |
+|---------|-----------|
+| `/vcore punish <player> [type] <reason>` | `miluvcore.punish` |
+| `/vcore ban <player> <reason>` | `miluvcore.ban` |
+| `/vcore unban <player>` | `miluvcore.ban` |
+| `/vcore mute <player> <reason>` | `miluvcore.mute` |
+| `/vcore unmute <player>` | `miluvcore.mute` |
+| `/vcore warn <player> <reason>` | `miluvcore.punish` |
+| `/vcore freeze <player>` | `miluvcore.freeze` |
+| `/vcore reasons` | `miluvcore.staff` |
+| `/vcore inspect <player>` | `miluvcore.inspect` |
+
+### Features
+- Punishment types with configurable durations
+- Auto-expiring tempbans and mutes
+- Ban screen builder with custom messages
+- Reason classifier with severity presets
+- Player history tracking
+
+---
+
+## Extension: IPLimiter (MiluVCore-IPLimiter.jar)
+
+Limits concurrent connections from the same IP address.
+
+### Configuration
+```yaml
+max-connections-per-ip: 1
+bypass-permission: "miluvcore.iplimiter.bypass"
+```
+
+### Features
+- Atomic connection counting per IP
+- Automatic cleanup on disconnect
+- Configurable kick message with color codes
+
+---
+
+## Extension: AntiSpoof (MiluVCore-AntiSpoof.jar)
+
+Client spoof detection via brand analysis and channel monitoring.
+
+### Detection
+- **Brand analysis**: 200+ brand regex patterns detecting hacked clients (Wurst, Meteor, Rise, Vape, Future, etc.) and legitimate launchers (Lunar, Badlion, Forge, Fabric)
+- **Channel monitoring**: detects blocked or illegal mod channels (Xaero Minimap, Baritone, SeedCracker, etc.)
+- **Vanilla spoof**: flags players claiming vanilla with registered channels
+- **Mod list decoding**: extracts mod names from `vv:mod_details` and `tiscm` channels when available
+- **Geyser spoof**: detects Bedrock clients faking Java client brands
+
+### Mod Database
+- 200+ classified mod entries: ILLEGAL, LEGAL, SUSPICIOUS, UNKNOWN
+- Cheat client detection (KillAura, Reach, AutoClicker, Scaffold, Velocity, XRay, etc.)
+- 50+ hacked client brand patterns
+- Performance/QOL mods recognized as legal
+
+### Alerts
+- Discord webhook embeds with mod classification, threat scoring, and client type detection
+- In-game staff alerts (`antispoof.alerts` permission)
+- Configurable punishments per violation type
+- VPN/proxy detection via ip-api.com (optional)
+
+### Commands
+| Command | Permission |
+|---------|-----------|
+| `/am channels <player>` | `antispoof.command` |
+| `/am brand <player>` | `antispoof.command` |
+| `/am check [player]` | `antispoof.command` |
+| `/am runcheck [player]` | `antispoof.admin` |
+| `/am blockedchannels` | `antispoof.admin` |
+| `/am blockedbrands` | `antispoof.admin` |
+| `/am reload` | `antispoof.admin` |
+| `/vcore am` | `antispoof.command` |
+
+### PlaceholderAPI
+- `%antispoof_brand%`, `%antispoof_channels%`, `%antispoof_channels_count%`
+- `%antispoof_is_spoofing%`, `%antispoof_is_bedrock%`
+
+---
+
+## Build
+
+```bash
+cd MiluVCore
+JAVA_HOME=/path/to/jdk21 ./gradlew build
+```
+
+Jars are in the `build/libs/` directory of each subproject.
+
+---
+
+## Install
+
+1. Drop `MiluVCore-1.6.0.jar` into `plugins/`
+2. Add any extensions you want: `MiluVCore-Sentry-1.6.0.jar`, `MiluVCore-Moderation-1.6.0.jar`, `MiluVCore-IPLimiter-1.6.0.jar`, `MiluVCore-AntiSpoof-1.6.0.jar`
 3. Restart server
-4. Edit plugins/MiluVCore/config.yml to taste
-y: git clone and run `Java_HOME=../../gradlew :extension-sentry:jar`. The Sentry JAR will be in `extension-sentry/build/libs/`.
+4. Edit configs in `plugins/MiluVCore/` and each extension's data folder
