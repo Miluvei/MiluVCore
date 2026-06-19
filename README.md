@@ -1,4 +1,4 @@
-# MiluVCore v1.6.0
+# MiluVCore v1.5.2
 
 Staff tools for Paper 1.21+ servers. Modular core with four extensions for moderation, anti-cheat, client analysis, and connection limiting.
 
